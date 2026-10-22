@@ -1,6 +1,6 @@
 import Icon from './Icon.jsx'
 import { Picture, SectionHeader, WhatsAppButton } from './ui.jsx'
-import { Reveal, Stagger, StaggerItem, m } from './motion.jsx'
+import { Reveal, Stagger, StaggerItem } from './motion.jsx'
 import { photos, messages } from '../data/site.js'
 import { videosByCategory, videosPageUrl } from '../data/videos.js'
 
@@ -56,24 +56,14 @@ export default function Musicalizacao() {
           </Reveal>
         </div>
 
+        {/* Fotos sem animação de entrada e sem carregamento tardio: no celular elas não apareciam. */}
         <div className="musicalizacao__media">
-          <m.figure
-            className="musicalizacao__photo musicalizacao__photo--a"
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-          >
-            <Picture photo={photos.familias} sizes="(min-width: 960px) 26vw, 60vw" />
-          </m.figure>
-          <m.figure
-            className="musicalizacao__photo musicalizacao__photo--b"
-            initial={{ opacity: 0, y: 40, rotate: 4 }}
-            whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.2, duration: 0.7 }}
-          >
-            <Picture photo={photos.tecidoAzul} sizes="(min-width: 960px) 22vw, 45vw" />
-          </m.figure>
+          <figure className="musicalizacao__photo musicalizacao__photo--a">
+            <Picture photo={photos.familias} loading="eager" sizes="(min-width: 960px) 26vw, 60vw" />
+          </figure>
+          <figure className="musicalizacao__photo musicalizacao__photo--b">
+            <Picture photo={photos.tecidoAzul} loading="eager" sizes="(min-width: 960px) 22vw, 45vw" />
+          </figure>
         </div>
       </div>
     </section>

@@ -1500,6 +1500,7 @@ address {
 .cta-final__box::after {
   content: '';
   position: absolute;
+  z-index: 0;
   border-radius: 50%;
   pointer-events: none;
 }
@@ -1512,16 +1513,27 @@ address {
   background: rgb(124 198 242 / 0.35);
 }
 
+/* No celular o círculo laranja fica só no canto, sem passar por baixo do título. */
 .cta-final__box::after {
-  width: 140px;
-  height: 140px;
-  right: -40px;
-  top: -50px;
+  width: 100px;
+  height: 100px;
+  right: -34px;
+  top: -64px;
   background: rgb(247 147 30 / 0.85);
+}
+
+@media (min-width: 640px) {
+  .cta-final__box::after {
+    width: 140px;
+    height: 140px;
+    right: -40px;
+    top: -70px;
+  }
 }
 
 .cta-final__box > * {
   position: relative;
+  z-index: 1;
 }
 
 .cta-final__box h2 {
@@ -1726,6 +1738,9 @@ body.menu-open .floating-wa {
 /* ---------- Player de vídeo ---------- */
 .video-player {
   position: relative;
+  /* Evita o bug do Safari/iPhone em que vídeo dentro de bloco arredondado, animado, não aparece. */
+  isolation: isolate;
+  transform: translateZ(0);
   overflow: hidden;
   width: 100%;
   border-radius: var(--radius-lg);
@@ -1779,6 +1794,19 @@ body.menu-open .floating-wa {
 .video-player__play:hover .video-player__icon {
   transform: translate(-50%, -50%) scale(1.07);
   box-shadow: 0 0 0 14px rgb(247 147 30 / 0.3);
+}
+
+.video-player__fallback {
+  position: absolute;
+  inset: auto 12px 12px;
+  z-index: 2;
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--navy);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .video-player__label {
