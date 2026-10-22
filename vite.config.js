@@ -9,6 +9,7 @@ export default defineConfig({
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
         privacidade: resolve(import.meta.dirname, 'privacidade.html'),
+        videos: resolve(import.meta.dirname, 'videos.html'),
       },
     },
   },

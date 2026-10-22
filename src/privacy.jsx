@@ -56,7 +56,7 @@ function Privacy() {
               plataforma.
             </li>
           </ul>
-          <p>As fontes tipográficas do site são servidas pelo próprio site, sem chamadas a serviços externos.</p>
+          <p>As fontes tipográficas e os vídeos são servidos pelo próprio site, sem chamadas a serviços externos.</p>
 
           <h2>Fotografias</h2>
           <p>

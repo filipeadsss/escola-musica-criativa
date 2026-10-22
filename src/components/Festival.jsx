@@ -1,59 +1,72 @@
 import { Picture, SectionHeader, WhatsAppButton } from './ui.jsx'
+import { Reveal, Stagger, StaggerItem, fadeIn } from './motion.jsx'
 import { photos, messages } from '../data/site.js'
+import { videosByCategory, videosPageUrl } from '../data/videos.js'
+import Icon from './Icon.jsx'
 
 const valores = [
-  { title: 'Evolução', text: 'Um momento para mostrar o que foi construído ao longo das aulas.' },
-  { title: 'Palco de verdade', text: 'A experiência de se apresentar ao vivo, com luz, som e plateia.' },
-  { title: 'Todas as idades', text: 'Crianças pequenas, adolescentes e adultos dividem o mesmo palco.' },
-  { title: 'Família junto', text: 'Pais e filhos também sobem ao palco para tocar lado a lado.' },
+  { title: 'Ver o quanto evoluiu', text: 'É o dia de mostrar tudo o que foi aprendido ao longo das aulas.' },
+  { title: 'A emoção do palco', text: 'Luz, som, plateia e aplausos. Uma experiência que fica para sempre.' },
+  { title: 'Todas as idades', text: 'Criança pequena, adolescente e adulto dividem o mesmo palco.' },
+  { title: 'Família no palco', text: 'Muitas vezes pais e filhos sobem juntos para tocar lado a lado.' },
 ]
 
 export default function Festival() {
+  const hasVideos = videosByCategory('festival').length > 0
   return (
     <section id="festival" className="section festival" aria-labelledby="festival-title">
       <div className="container">
         <div className="festival__head">
-          <SectionHeader id="festival-title" eyebrow="Festival Música Criativa" title="O aprendizado ganha vida no palco.">
-            <p>
-              Todos os anos, o festival da Escola Música Criativa reúne alunos de diferentes idades em uma celebração
-              da música. É uma oportunidade de compartilhar o que foi aprendido, viver a experiência de se apresentar
-              e celebrar a trajetória musical junto com professores e familiares.
-            </p>
-          </SectionHeader>
-          <p className="festival__motto">
+          <Reveal>
+            <SectionHeader id="festival-title" eyebrow="Festival Música Criativa" title="O dia em que seu filho sobe ao palco.">
+              <p>
+                Todo ano, a escola faz um festival para os alunos mostrarem o que aprenderam. A família assiste,
+                torce e se emociona. É um dia para guardar na memória.
+              </p>
+            </SectionHeader>
+          </Reveal>
+          <Reveal as="p" className="festival__motto" delay={0.15}>
             Talentos que inspiram,
             <br />
             <span>música que transforma.</span>
-          </p>
+          </Reveal>
         </div>
 
         <div className="festival__media">
-          <figure className="festival__photo festival__photo--wide">
+          <Reveal as="figure" className="festival__photo festival__photo--wide" variants={fadeIn}>
             <Picture photo={photos.festivalCertificados} sizes="(min-width: 960px) 60vw, 100vw" />
-            <figcaption>Entrega dos certificados no palco do festival</figcaption>
-          </figure>
-          <figure className="festival__photo">
+            <figcaption>Entrega dos certificados no palco</figcaption>
+          </Reveal>
+          <Reveal as="figure" className="festival__photo" variants={fadeIn} delay={0.12}>
             <Picture photo={photos.festivalPalco} sizes="(min-width: 960px) 36vw, 100vw" />
             <figcaption>Apresentação ao vivo</figcaption>
-          </figure>
+          </Reveal>
         </div>
 
-        <ul className="festival__values">
+        <Stagger className="festival__values">
           {valores.map((v, i) => (
-            <li key={v.title}>
+            <StaggerItem key={v.title}>
               <span className="festival__num" aria-hidden="true">
                 0{i + 1}
               </span>
               <h3>{v.title}</h3>
               <p>{v.text}</p>
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </Stagger>
 
-        <div className="festival__cta">
-          <p>A musicalização infantil também ganha uma edição própria do festival, pensada para os pequenos.</p>
-          <WhatsAppButton message={messages.festival}>Saber mais sobre o festival</WhatsAppButton>
-        </div>
+        <Reveal className="festival__cta">
+          <p>Os pequenos da musicalização também têm o festival deles, feito sob medida para a idade.</p>
+          <div className="section-actions">
+            <WhatsAppButton message={messages.festival}>Quero saber do festival</WhatsAppButton>
+            {hasVideos && (
+              <a className="btn btn--light" href={videosPageUrl('festival')}>
+                <Icon name="video" size={18} />
+                Ver vídeos do festival
+              </a>
+            )}
+          </div>
+        </Reveal>
       </div>
     </section>
   )

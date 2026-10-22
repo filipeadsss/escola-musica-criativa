@@ -10,10 +10,11 @@ import Galeria from './components/Galeria.jsx'
 import Contato from './components/Contato.jsx'
 import Footer, { CtaFinal } from './components/Footer.jsx'
 import FloatingWhatsApp from './components/FloatingWhatsApp.jsx'
+import { MotionProvider } from './components/motion.jsx'
 
 export default function App() {
   return (
-    <>
+    <MotionProvider>
       <a className="skip-link" href="#conteudo">
         Pular para o conteúdo
       </a>
@@ -32,6 +33,6 @@ export default function App() {
       </main>
       <Footer />
       <FloatingWhatsApp />
-    </>
+    </MotionProvider>
   )
 }

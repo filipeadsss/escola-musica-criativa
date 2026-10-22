@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import Icon from './Icon.jsx'
 import { Picture, SectionHeader } from './ui.jsx'
+import { Stagger, m, fadeUp } from './motion.jsx'
 import { gallery } from '../data/site.js'
 
 const INITIAL = 8
@@ -35,7 +36,16 @@ function Lightbox({ index, onClose, onMove }) {
       onClick={(e) => e.target === ref.current && ref.current.close()}
     >
       <figure className="lightbox__figure">
-        <img src={photo.full} alt={photo.alt} width={photo.width} height={photo.height} />
+        <m.img
+          key={index}
+          src={photo.full}
+          alt={photo.alt}
+          width={photo.width}
+          height={photo.height}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.35 }}
+        />
         <figcaption>
           <span className="tag">{photo.tag}</span>
           <span aria-live="polite">
@@ -77,10 +87,10 @@ export default function Galeria() {
   return (
     <section id="galeria" className="section galeria" aria-labelledby="galeria-title">
       <div className="container">
-        <SectionHeader id="galeria-title" eyebrow="Galeria" title="Momentos de verdade, vividos na escola." align="center" />
-        <ul className="galeria__grid">
+        <SectionHeader id="galeria-title" eyebrow="Galeria" title="Um pouco do nosso dia a dia." align="center" />
+        <Stagger className="galeria__grid" gap={0.05}>
           {items.map((photo, i) => (
-            <li key={photo.src} className={`galeria__item galeria__item--${layout(i)}`}>
+            <m.li key={photo.src} className={`galeria__item galeria__item--${layout(i)}`} variants={fadeUp}>
               <button
                 type="button"
                 onClick={(e) => {
@@ -92,9 +102,9 @@ export default function Galeria() {
                 <span className="galeria__tag">{photo.tag}</span>
                 <span className="sr-only">Ampliar foto</span>
               </button>
-            </li>
+            </m.li>
           ))}
-        </ul>
+        </Stagger>
         {gallery.length > INITIAL && (
           <div className="galeria__more">
             <button type="button" className="btn btn--secondary" aria-expanded={expanded} onClick={() => setExpanded((v) => !v)}>

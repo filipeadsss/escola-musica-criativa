@@ -1,25 +1,28 @@
 import { Picture, SectionHeader } from './ui.jsx'
+import { Reveal, fadeIn } from './motion.jsx'
 import { photos } from '../data/site.js'
 
 export default function Equipe() {
   return (
     <section id="equipe" className="section equipe" aria-labelledby="equipe-title">
       <div className="container">
-        <SectionHeader
-          id="equipe-title"
-          eyebrow="Equipe e comunidade"
-          title="Uma comunidade que aprende e vive a música junto."
-          align="center"
-        >
-          <p>
-            Professores que acompanham cada aluno de perto e famílias que fazem parte da rotina da escola. É essa
-            convivência que transforma a aula em encontro.
-          </p>
-        </SectionHeader>
-        <figure className="equipe__photo">
+        <Reveal>
+          <SectionHeader
+            id="equipe-title"
+            eyebrow="Quem cuida das aulas"
+            title="Professores apaixonados por música e por ensinar."
+            align="center"
+          >
+            <p>
+              Uma equipe experiente, que gosta de gente e acompanha cada aluno de perto. É essa alegria que seu filho
+              encontra quando chega para a aula.
+            </p>
+          </SectionHeader>
+        </Reveal>
+        <Reveal as="figure" className="equipe__photo" variants={fadeIn}>
           <Picture photo={photos.equipe} sizes="(min-width: 1200px) 1100px, 100vw" />
-          <figcaption>Parte da equipe de professores da Escola Música Criativa</figcaption>
-        </figure>
+          <figcaption>Parte da equipe de professores da Música Criativa</figcaption>
+        </Reveal>
       </div>
     </section>
   )

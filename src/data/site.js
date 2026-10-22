@@ -6,6 +6,9 @@ export const school = {
   name: 'Escola Música Criativa',
   shortName: 'Música Criativa',
   tagline: 'A gente faz porque ama!', // bio do Instagram
+  // Fala do vídeo de apresentação da escola
+  mission:
+    'Nossa missão é proporcionar às crianças, adolescentes e adultos a possibilidade de aprender música de uma forma lúdica e prazerosa, pensando na música como forma de educação e desenvolvimento humano.',
   // CONFIRMAR: telefone/WhatsApp do perfil no Google e dos posts
   phoneDisplay: '(31) 97305-4977',
   phoneE164: '5531973054977',
@@ -38,12 +41,12 @@ export const mapsEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
 )}&output=embed`
 
 export const messages = {
-  geral: 'Olá! Gostaria de conhecer as aulas da Escola Música Criativa.',
-  musicalizacao: 'Olá! Gostaria de saber mais sobre a musicalização infantil.',
-  eventos: 'Olá! Gostaria de consultar informações sobre eventos musicais para aniversário.',
-  festival: 'Olá! Gostaria de saber mais sobre o festival da Escola Música Criativa.',
-  aula: (modalidade) => `Olá! Gostaria de saber sobre as aulas de ${modalidade} na Escola Música Criativa.`,
-  outroInstrumento: 'Olá! Gostaria de saber quais instrumentos estão disponíveis para aulas na Escola Música Criativa.',
+  geral: 'Olá! Vi o site da Música Criativa e quero saber mais sobre as aulas.',
+  musicalizacao: 'Olá! Quero saber mais sobre a musicalização infantil para o meu filho.',
+  eventos: 'Olá! Quero saber sobre a experiência musical para festa de aniversário.',
+  festival: 'Olá! Quero saber mais sobre o festival da Música Criativa.',
+  aula: (modalidade) => `Olá! Quero saber sobre as aulas de ${modalidade}.`,
+  outroInstrumento: 'Olá! Quero saber quais instrumentos vocês ensinam.',
 }
 
 export const nav = [
@@ -53,6 +56,7 @@ export const nav = [
   { id: 'aulas', label: 'Aulas' },
   { id: 'festival', label: 'Festival' },
   { id: 'eventos', label: 'Eventos' },
+  { id: 'videos', label: 'Vídeos', href: '/videos.html' },
   { id: 'contato', label: 'Contato' },
 ]
 
@@ -60,16 +64,17 @@ export const nav = [
 // CONFIRMAR com a escola a lista vigente, faixas etárias e disponibilidade de turmas.
 export const modalidades = [
   {
+    id: 'musicalizacao',
     nome: 'Musicalização infantil',
-    detalhe: 'Turmas de bebês e crianças, com participação dos responsáveis.',
+    detalhe: 'Para bebês e crianças. Os pais participam da aula junto.',
     destaque: true,
     anchor: '#musicalizacao',
   },
-  { nome: 'Canto', detalhe: 'Aulas de voz para quem quer cantar.' },
-  { nome: 'Guitarra', detalhe: 'Aulas de guitarra elétrica.' },
-  { nome: 'Bateria', detalhe: 'Aulas de bateria e ritmo.' },
-  { nome: 'Violino', detalhe: 'Aulas de violino.' },
-  { nome: 'Ukulele', detalhe: 'Aulas de ukulele.' },
+  { id: 'canto', nome: 'Canto', detalhe: 'Para quem vive cantando pela casa.' },
+  { id: 'guitarra', nome: 'Guitarra', detalhe: 'Para quem quer tocar as músicas que ama ouvir.' },
+  { id: 'bateria', nome: 'Bateria', detalhe: 'Para quem vive batucando na mesa.' },
+  { id: 'violino', nome: 'Violino', detalhe: 'Para quem se encanta com o som do violino.' },
+  { id: 'ukulele', nome: 'Ukulele', detalhe: 'Pequeno, leve e do tamanho das mãos das crianças.' },
 ]
 
 const img = (name, alt, { w, h, large = true } = {}) => ({

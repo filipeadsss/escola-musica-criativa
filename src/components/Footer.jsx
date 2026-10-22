@@ -1,20 +1,21 @@
 import Icon from './Icon.jsx'
 import Logo from './Logo.jsx'
 import { WhatsAppButton } from './ui.jsx'
+import { Reveal } from './motion.jsx'
 import { nav, school, fullAddress, messages } from '../data/site.js'
 
 export function CtaFinal() {
   return (
     <section className="section cta-final" aria-labelledby="cta-title">
       <div className="container">
-        <div className="cta-final__box">
-          <h2 id="cta-title">Vamos descobrir novas possibilidades por meio da música?</h2>
+        <Reveal className="cta-final__box">
+          <h2 id="cta-title">Que tal ver seu filho fazendo música?</h2>
           <p>
-            Entre em contato com a Escola Música Criativa e conheça as experiências musicais disponíveis para você e
-            sua família.
+            Mande uma mensagem. A gente explica tudo com calma e ajuda a escolher a turma certa para a idade e o
+            jeito do seu filho.
           </p>
-          <WhatsAppButton message={messages.geral}>Fale com a nossa equipe</WhatsAppButton>
-        </div>
+          <WhatsAppButton message={messages.geral}>Falar com a escola no WhatsApp</WhatsAppButton>
+        </Reveal>
       </div>
     </section>
   )
@@ -45,7 +46,7 @@ export default function Footer({ base = '' }) {
           <ul>
             {nav.map((item) => (
               <li key={item.id}>
-                <a href={`${base}#${item.id}`}>{item.label}</a>
+                <a href={item.href ?? `${base}#${item.id}`}>{item.label}</a>
               </li>
             ))}
             <li>
@@ -56,7 +57,7 @@ export default function Footer({ base = '' }) {
 
         <div>
           <h2 className="site-footer__title">Fale com a escola</h2>
-          <p>Tire dúvidas sobre aulas, musicalização infantil e eventos.</p>
+          <p>Dúvidas sobre aulas, musicalização ou festas? É só chamar.</p>
           <WhatsAppButton message={messages.geral} variant="light">
             WhatsApp
           </WhatsAppButton>

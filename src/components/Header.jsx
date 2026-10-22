@@ -24,12 +24,13 @@ function useActiveSection(ids) {
   return active
 }
 
-const navIds = nav.map((item) => item.id)
+const navIds = nav.filter((item) => !item.href).map((item) => item.id)
 
-export default function Header() {
+export default function Header({ base = '', current }) {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const active = useActiveSection(navIds)
+  const sectionActive = useActiveSection(navIds)
+  const active = current ?? sectionActive
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -55,7 +56,7 @@ export default function Header() {
   return (
     <header className={`site-header ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
       <div className="container site-header__bar">
-        <a className="site-header__logo" href="#inicio" aria-label="Escola Música Criativa, voltar ao início" onClick={() => setOpen(false)}>
+        <a className="site-header__logo" href={`${base}#inicio`} aria-label="Escola Música Criativa, voltar ao início" onClick={() => setOpen(false)}>
           <Logo />
         </a>
 
@@ -64,7 +65,7 @@ export default function Header() {
             {nav.map((item) => (
               <li key={item.id}>
                 <a
-                  href={`#${item.id}`}
+                  href={item.href ?? `${base}#${item.id}`}
                   aria-current={active === item.id ? 'true' : undefined}
                   onClick={() => setOpen(false)}
                 >

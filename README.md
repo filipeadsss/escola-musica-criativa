@@ -33,6 +33,31 @@ src/privacy.jsx            Página de política de privacidade
 
 Para mudar telefone, endereço, modalidades ou mensagens, edite apenas `src/data/site.js`.
 
+## Vídeos
+
+Os vídeos ficam em `public/videos/` e a lista em `src/data/videos.js`. Para adicionar um vídeo:
+
+1. Converta para MP4 (H.264) otimizado para web e gere uma capa:
+   ```bash
+   ffmpeg -i original.mp4 -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -c:a aac -b:a 96k -movflags +faststart public/videos/NOME.mp4
+   ffmpeg -ss 1 -i original.mp4 -frames:v 1 public/videos/NOME.webp
+   ```
+2. Adicione um item em `videos` (em `src/data/videos.js`) com a categoria: `escola`, `musicalizacao`, `canto`,
+   `guitarra`, `bateria`, `violino`, `ukulele`, `festival` ou `eventos`.
+
+A página `/videos.html` tem uma aba por categoria, com link direto (ex.: `/videos.html#guitarra`). Os botões
+"Ver vídeos" nos cards de aula, na musicalização e no festival aparecem sozinhos quando a categoria tem vídeo.
+
+Hospedar os vídeos no próprio site funciona bem para poucos vídeos curtos. Se a lista crescer muito (dezenas de
+vídeos ou arquivos grandes), vale migrar para YouTube (não listado) ou Bunny Stream, para não pesar no repositório
+nem na banda da hospedagem.
+
+## Animações
+
+Feitas com a biblioteca [Motion](https://motion.dev) (`src/components/motion.jsx`): entrada suave das seções ao
+rolar a página, listas em sequência, foto ampliada da galeria e abas da página de vídeos. Quem ativa "reduzir
+movimento" no sistema vê o site sem deslocamentos.
+
 ## Funcionalidades
 
 - Navegação por seções com indicação da seção ativa; menu móvel com fechamento por Esc e por clique.
@@ -59,16 +84,18 @@ Informações tiradas dos materiais de referência (perfil do Instagram, ficha d
    pequenos eventos" que não foi incluído no site.
 7. **Fotos**: autorização de uso de imagem para publicação definitiva, principalmente das fotos com crianças.
    A autorização atual vale para o protótipo.
-8. **Logotipo**: o site usa uma marca tipográfica provisória. Pedir o arquivo original (SVG ou PNG em alta resolução).
+8. **Logotipo**: o site usa o logo enviado (fundo preto removido). Para a versão final, pedir o arquivo vetorial (SVG ou PDF).
 9. **Horários de funcionamento**: não foram publicados porque não estavam confirmados.
 10. **Avaliações do Google** (5,0 com 164 avaliações no print de referência): não usadas. Se a escola quiser, dá para
     incluir uma chamada "Veja as avaliações no Google" com link para a ficha, sem copiar notas para o site.
-11. **Política de privacidade**: texto inicial coerente com o que o site faz hoje; idealmente revisar com assessoria jurídica.
+11. **Vídeo de apresentação**: autorização para publicar e confirmação de que a fala ("professores altamente
+    qualificados", missão da escola) pode ser citada no site, como foi feito na seção "Conheça a escola".
+12. **Política de privacidade**: texto inicial coerente com o que o site faz hoje; idealmente revisar com assessoria jurídica.
 
 ## Para publicar de verdade
 
 1. Confirmar os itens acima e atualizar `src/data/site.js`.
-2. Trocar a marca provisória pelo logotipo oficial (`src/components/Logo.jsx`).
+2. Trocar o logo recortado pelo arquivo vetorial oficial (`public/brand/`).
 3. Pedir fotos em resolução maior: as atuais têm cerca de 900px, o suficiente para o protótipo, mas abaixo do ideal
    para telas grandes.
 4. Ajustar o domínio definitivo nas tags `canonical`, `og:url`, `og:image` e no JSON-LD do `index.html`.

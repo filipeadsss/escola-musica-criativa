@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Icon from './Icon.jsx'
 import { Picture, SectionHeader, WhatsAppButton } from './ui.jsx'
+import { Reveal, fadeIn } from './motion.jsx'
 import { school, fullAddress, mapsUrl, mapsEmbedUrl, messages, photos } from '../data/site.js'
 
 function MapEmbed() {
@@ -36,10 +37,10 @@ export default function Contato() {
     <section id="contato" className="section contato" aria-labelledby="contato-title">
       <div className="container contato__grid">
         <div className="contato__info">
-          <SectionHeader id="contato-title" eyebrow="Localização e contato" title="Venha conhecer a escola.">
+          <SectionHeader id="contato-title" eyebrow="Localização e contato" title="Venha conhecer a escola de pertinho.">
             <p>
-              Estamos no bairro Nossa Senhora de Fátima, em Contagem. Fale com a equipe para tirar dúvidas e
-              combinar uma visita.
+              Fica no bairro Nossa Senhora de Fátima, em Contagem, atrás da Caixa. Chame no WhatsApp para tirar
+              dúvidas ou combinar uma visita.
             </p>
           </SectionHeader>
 
@@ -89,7 +90,7 @@ export default function Contato() {
             </li>
           </ul>
 
-          <p className="contato__hours">Horários de atendimento e das turmas: consulte a equipe pelo WhatsApp.</p>
+          <p className="contato__hours">Quer saber os horários das turmas? A equipe responde pelo WhatsApp.</p>
 
           <div className="contato__actions">
             <WhatsAppButton message={messages.geral}>Chamar no WhatsApp</WhatsAppButton>
@@ -101,9 +102,9 @@ export default function Contato() {
           </div>
         </div>
 
-        <div className="contato__media">
+        <Reveal className="contato__media" variants={fadeIn}>
           <MapEmbed />
-        </div>
+        </Reveal>
       </div>
     </section>
   )
