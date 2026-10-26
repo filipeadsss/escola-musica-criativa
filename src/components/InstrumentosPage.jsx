@@ -72,7 +72,7 @@ export default function InstrumentosPage() {
           </Reveal>
 
           {instrumentos.map((g) => (
-            <div key={g.id} className="instrumentos__grupo">
+            <div key={g.id} id={g.id} className="instrumentos__grupo">
               <Reveal as="h2" className="instrumentos__titulo">
                 {g.titulo}
               </Reveal>

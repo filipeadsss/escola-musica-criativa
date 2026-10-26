@@ -46,14 +46,6 @@ export default function Musicalizacao() {
             </Stagger>
           </Reveal>
 
-          <Reveal className="salas-tematicas">
-            <h3 className="salas-tematicas__title">Nossas salas de aula são temáticas</h3>
-            <p>
-              Inspiradas em histórias e personagens do cinema, elas mudam de tempos em tempos. Assim a criança entra
-              num ambiente que parece feito para ela, se sente à vontade para explorar e aprende ainda mais.
-            </p>
-          </Reveal>
-
           <Reveal className="section-actions">
             <WhatsAppButton message={messages.musicalizacao}>Quero saber das turmas</WhatsAppButton>
             {hasVideos && (

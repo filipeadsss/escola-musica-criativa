@@ -86,6 +86,15 @@ export const instrumentos = [
     ],
   },
   {
+    // CONFIRMAR com a escola: aulas de teclado e piano (citadas por Filipe, ainda não vistas nas publicações oficiais).
+    id: 'teclas',
+    titulo: 'Teclas',
+    itens: [
+      { id: 'teclado', nome: 'Teclado', detalhe: 'Para quem quer aprender melodias e acordes.' },
+      { id: 'piano', nome: 'Piano', detalhe: 'Para quem se encanta com o som do piano.' },
+    ],
+  },
+  {
     id: 'percussao',
     titulo: 'Percussão',
     itens: [{ id: 'bateria', nome: 'Bateria', detalhe: 'Para quem vive batucando na mesa.' }],

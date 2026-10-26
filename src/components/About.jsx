@@ -2,13 +2,12 @@ import Icon from './Icon.jsx'
 import VideoPlayer from './VideoPlayer.jsx'
 import { SectionHeader } from './ui.jsx'
 import { Reveal, Stagger, StaggerItem, fadeIn } from './motion.jsx'
-import { school } from '../data/site.js'
 import { featuredVideo, videosPageUrl } from '../data/videos.js'
 
 const pilares = [
-  { icon: 'users', title: 'Pais junto na aula', text: 'Na musicalização, você faz a aula com o seu filho. É um tempo só de vocês.' },
-  { icon: 'note', title: 'Aprender brincando', text: 'Ritmo, movimento, sons e instrumentos. A aula é leve e a criança quer voltar.' },
-  { icon: 'sparkle', title: 'Um palco para mostrar', text: 'Todo ano tem festival. Seu filho sobe ao palco e mostra o que aprendeu para a família.' },
+  { icon: 'hand', title: 'Acolhimento de verdade', text: 'Cada criança é recebida com carinho e no tempo dela, como quem chega na casa de alguém querido.' },
+  { icon: 'note', title: 'Divertido e na prática', text: 'Os alunos põem a mão nos instrumentos desde cedo. Aprender é tocar, cantar e brincar.' },
+  { icon: 'users', title: 'Os pais fazem parte', text: 'Você participa da aula com o seu filho e acompanha cada descoberta de perto.' },
 ]
 
 export default function About() {
@@ -33,15 +32,18 @@ export default function About() {
           <Reveal>
             <SectionHeader id="escola-title" eyebrow="Conheça a escola" title="Uma escola de música com cara de casa.">
               <p>
-                Salas coloridas, brinquedos por todo lado e instrumentos ao alcance das mãos. A Música Criativa fica
-                no bairro Nossa Senhora de Fátima, em Contagem, e recebe bebês, crianças, jovens e adultos.
+                Aqui a criança encontra colo, calma e um ambiente que abraça. Ela aprende música de um jeito
+                divertido e prático, e os pais entram na sala junto para viver esse aprendizado com ela.
               </p>
             </SectionHeader>
           </Reveal>
 
-          <Reveal as="blockquote" className="mission" delay={0.1}>
-            <p>“{school.mission}”</p>
-            <footer>Equipe Música Criativa</footer>
+          <Reveal className="salas-tematicas" delay={0.1}>
+            <h3 className="salas-tematicas__title">Nossas salas de aula são temáticas</h3>
+            <p>
+              Inspiradas em histórias e personagens do cinema, elas mudam de tempos em tempos. Assim a criança entra
+              num ambiente que parece feito para ela, se sente à vontade para explorar e aprende ainda mais.
+            </p>
           </Reveal>
 
           <Stagger className="pillars">

@@ -27,8 +27,7 @@ export default function Hero() {
             Seu filho aprende música de forma <span className="hl">lúdica e prazerosa.</span> E você vive isso junto.
           </m.h1>
           <m.p className="hero__lead" variants={item}>
-            Para nós, música é educação e desenvolvimento humano. Por isso as aulas são leves, com professores que
-            acompanham de perto e espaço para os pais participarem. Do primeiro chocalho ao primeiro palco.
+            Do primeiro chocalho ao primeiro palco, com professores que acompanham cada aluno de perto.
           </m.p>
           <m.div className="hero__actions" variants={item}>
             <WhatsAppButton message={messages.geral}>Quero conhecer a escola</WhatsAppButton>

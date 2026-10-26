@@ -662,28 +662,6 @@ address {
   align-self: center;
 }
 
-.mission {
-  margin: 28px 0 0;
-  padding: 20px 22px;
-  border-radius: var(--radius);
-  background: var(--navy);
-  color: var(--white);
-}
-
-.mission p {
-  font-family: var(--font-display);
-  font-size: 1.1875rem;
-  font-weight: 600;
-  line-height: 1.35;
-}
-
-.mission footer {
-  margin-top: 10px;
-  color: var(--orange);
-  font-size: 0.875rem;
-  font-weight: 800;
-}
-
 .about__more {
   margin-top: 28px;
 }
@@ -1671,7 +1649,7 @@ body.menu-open .floating-wa {
 }
 
 .salas-tematicas {
-  margin-bottom: 28px;
+  margin: 28px 0 0;
   padding: 22px;
   border-radius: var(--radius);
   background: var(--navy);
@@ -1689,36 +1667,46 @@ body.menu-open .floating-wa {
 }
 
 /* ---------- Aulas (resumo na página inicial) ---------- */
-.aulas__groups {
+.aulas__mosaico {
   display: grid;
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-.aulas__group {
-  padding: 12px 18px;
-  background: var(--white);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
+.aulas__mosaico .aula-card--featured,
+.aulas__mosaico .aula-card--other {
+  grid-column: span 2;
 }
 
-.aulas__group h3 {
-  font-size: 1.125rem;
-  font-weight: 800;
+.aula-card--compact {
+  padding: 16px 16px 12px;
 }
 
-.aulas__group p {
-  margin-top: 4px;
-  color: var(--muted);
-  font-weight: 700;
+.aula-card--compact .aula-card__title {
+  font-size: 1.375rem;
+}
+
+.aula-card--compact .aula-card__text {
+  margin-bottom: 8px;
+  font-size: 0.9375rem;
 }
 
 .aulas__actions {
   margin-top: 28px;
 }
 
-@media (min-width: 600px) {
-  .aulas__groups {
-    grid-template-columns: repeat(3, 1fr);
+@media (min-width: 960px) {
+  .aulas__mosaico {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .aula-card--compact {
+    padding: 22px 20px 16px;
+  }
+
+  .aula-card--compact .aula-card__title {
+    font-size: 1.625rem;
   }
 }
 
