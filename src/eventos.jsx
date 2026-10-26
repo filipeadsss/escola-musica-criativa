@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client'
 import '@fontsource-variable/bricolage-grotesque'
 import '@fontsource-variable/nunito'
 import './styles/global.css'
-import VideosPage from './components/VideosPage.jsx'
+import EventosPage from './components/EventosPage.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <VideosPage />
+    <EventosPage />
   </StrictMode>,
 )

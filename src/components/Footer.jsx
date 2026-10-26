@@ -49,9 +49,6 @@ export default function Footer({ base = '' }) {
                 <a href={item.href ?? `${base}#${item.id}`}>{item.label}</a>
               </li>
             ))}
-            <li>
-              <a href={`${base}#galeria`}>Galeria</a>
-            </li>
           </ul>
         </nav>
 

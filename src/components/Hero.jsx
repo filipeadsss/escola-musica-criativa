@@ -1,4 +1,5 @@
 import Icon from './Icon.jsx'
+import Logo from './Logo.jsx'
 import { Picture, WhatsAppButton } from './ui.jsx'
 import { m } from './motion.jsx'
 import { photos, messages, school } from '../data/site.js'
@@ -15,16 +16,19 @@ export default function Hero() {
     <section id="inicio" className="hero" aria-labelledby="hero-title">
       <m.div className="container hero__grid" initial="hidden" animate="show" variants={container}>
         <div className="hero__copy">
+          <m.div className="hero__brand" variants={item}>
+            <Logo className="hero__logo" />
+          </m.div>
           <m.p className="eyebrow eyebrow--pill" variants={item}>
             <Icon name="pin" size={16} />
-            Escola de música em {school.address.city} – {school.address.state}
+            Escola de música no Centro de {school.address.city}
           </m.p>
           <m.h1 id="hero-title" variants={item}>
-            Seu filho aprende música. <span className="hl">E você vive isso junto.</span>
+            Seu filho aprende música de forma <span className="hl">lúdica e prazerosa.</span> E você vive isso junto.
           </m.h1>
           <m.p className="hero__lead" variants={item}>
-            Aqui a criança aprende brincando, com professores que acompanham de perto e espaço para os pais
-            participarem. Do primeiro chocalho ao primeiro palco.
+            Para nós, música é educação e desenvolvimento humano. Por isso as aulas são leves, com professores que
+            acompanham de perto e espaço para os pais participarem. Do primeiro chocalho ao primeiro palco.
           </m.p>
           <m.div className="hero__actions" variants={item}>
             <WhatsAppButton message={messages.geral}>Quero conhecer a escola</WhatsAppButton>

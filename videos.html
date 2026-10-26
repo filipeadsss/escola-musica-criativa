@@ -3,24 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vídeos das aulas | Escola Música Criativa – Contagem</title>
-    <meta
-      name="description"
-      content="Assista aos vídeos da Escola Música Criativa: musicalização infantil, aulas de instrumento e canto, festival e o dia a dia da escola em Contagem – MG."
-    />
-    <meta name="theme-color" content="#0d2a4c" />
-    <!-- Rascunho em validação: não indexar. REMOVER esta linha quando a escola aprovar e o site for ao ar. -->
+    <title>Fotos e vídeos | Escola Música Criativa</title>
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="canonical" href="https://musicacriativa.com.br/videos.html" />
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:title" content="Vídeos das aulas | Escola Música Criativa" />
-    <meta property="og:description" content="Veja como são as aulas de música para crianças, jovens, adultos e famílias." />
-    <meta property="og:image" content="https://musicacriativa.com.br/videos/apresentacao-escola.webp" />
+    <meta http-equiv="refresh" content="0; url=/fotos-e-videos.html" />
+    <script>
+      // Os vídeos agora ficam na página "Fotos e vídeos". Mantém o filtro (#categoria) dos links antigos.
+      location.replace('/fotos-e-videos.html' + location.hash)
+    </script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/videos.jsx"></script>
+    <p><a href="/fotos-e-videos.html">Ir para fotos e vídeos</a></p>
   </body>
 </html>

@@ -1,74 +1,66 @@
 import Icon from './Icon.jsx'
-import { Picture, SectionHeader, WhatsAppButton } from './ui.jsx'
-import { Reveal, Stagger, StaggerItem, m } from './motion.jsx'
-import { photos, messages } from '../data/site.js'
+import { SectionHeader } from './ui.jsx'
+import { Reveal, Stagger, StaggerItem } from './motion.jsx'
 
-const atividades = [
-  'As crianças conhecem e tocam instrumentos',
-  'Brincadeiras com ritmo, música e movimento',
-  'Pais e convidados entram na brincadeira também',
+// Resumo na página inicial. O conteúdo completo fica em /eventos.html.
+const cards = [
+  {
+    id: 'eventos-escola',
+    icon: 'users',
+    title: 'Eventos na escola',
+    text: 'Noites de luau e piquenique musical, com os alunos se apresentando para as famílias.',
+  },
+  {
+    id: 'banda',
+    icon: 'note',
+    title: 'A banda da escola',
+    text: 'Música infantil ao vivo em aniversários, parques e outros eventos.',
+  },
+  {
+    id: 'festival',
+    icon: 'sparkle',
+    title: 'Festival Música Criativa',
+    text: 'Todo ano, no fim do ano, os alunos sobem ao palco para mostrar o que aprenderam.',
+  },
+  {
+    id: 'sonorizacao',
+    icon: 'drum',
+    title: 'Sonorização para eventos',
+    text: 'A escola também aluga equipamento de som para o seu evento.',
+  },
 ]
 
 export default function Eventos() {
   return (
-    <section id="eventos" className="section eventos" aria-labelledby="eventos-title">
-      <div className="container eventos__grid">
-        <div className="eventos__media">
-          <m.figure
-            className="eventos__photo eventos__photo--a"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+    <section id="eventos" className="section eventos-resumo" aria-labelledby="eventos-title">
+      <div className="container">
+        <Reveal>
+          <SectionHeader
+            id="eventos-title"
+            eyebrow="Eventos"
+            title="Música criativa também fora da sala de aula."
+            align="center"
           >
-            <Picture photo={photos.eventoTambor} sizes="(min-width: 960px) 20vw, 45vw" />
-          </m.figure>
-          <m.figure
-            className="eventos__photo eventos__photo--b"
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ delay: 0.15, duration: 0.7 }}
-          >
-            <Picture photo={photos.eventoBolhas} sizes="(min-width: 960px) 20vw, 45vw" />
-          </m.figure>
-        </div>
+            <p>Festival, banda, encontros na escola e som para o seu evento. Toque em um deles para saber mais.</p>
+          </SectionHeader>
+        </Reveal>
 
-        <div className="eventos__copy">
-          <Reveal>
-            <SectionHeader
-              id="eventos-title"
-              eyebrow="Festas de aniversário"
-              title="Um aniversário em que as crianças fazem a música."
-            >
-              <p>
-                A equipe da escola leva instrumentos e brincadeiras musicais para a sua festa. As crianças tocam,
-                cantam e participam de tudo, junto com os adultos.
-              </p>
-            </SectionHeader>
-          </Reveal>
-
-          <Reveal className="eventos__diff" delay={0.1}>
-            <p className="eventos__diff-title">Não é só animação</p>
-            <p>
-              Ninguém fica só olhando: as crianças pegam nos instrumentos e fazem a música acontecer, com a ajuda de
-              quem ensina música todos os dias.
-            </p>
-          </Reveal>
-
-          <Stagger className="checklist">
-            {atividades.map((a) => (
-              <StaggerItem key={a}>
-                <Icon name="note" size={20} />
-                {a}
-              </StaggerItem>
-            ))}
-          </Stagger>
-
-          <Reveal>
-            <WhatsAppButton message={messages.eventos}>Consultar para a minha festa</WhatsAppButton>
-            <p className="fine-print">A equipe informa formato, datas livres e valores pelo WhatsApp.</p>
-          </Reveal>
-        </div>
+        <Stagger className="eventos-resumo__grid" gap={0.07}>
+          {cards.map((c) => (
+            <StaggerItem key={c.id} className="evento-card">
+              <span className="evento-card__icon">
+                <Icon name={c.icon} size={24} />
+              </span>
+              <h3>{c.title}</h3>
+              <p>{c.text}</p>
+              <a className="aula-card__link" href={`/eventos.html#${c.id}`}>
+                Saiba mais
+                <Icon name="arrowRight" size={18} />
+                <span className="sr-only"> sobre {c.title}</span>
+              </a>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </div>
     </section>
   )

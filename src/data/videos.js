@@ -37,4 +37,5 @@ export const featuredVideo = videos.find((v) => v.featured)
 
 export const videosByCategory = (categoryId) => videos.filter((v) => v.category === categoryId)
 
-export const videosPageUrl = (categoryId) => (categoryId ? `/videos.html#${categoryId}` : '/videos.html')
+export const videosPageUrl = (categoryId) =>
+  categoryId ? `/fotos-e-videos.html#${categoryId}` : '/fotos-e-videos.html'

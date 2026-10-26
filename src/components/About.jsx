@@ -60,7 +60,7 @@ export default function About() {
 
           <Reveal className="about__more" delay={0.1}>
             <a className="text-link" href={videosPageUrl()}>
-              Ver todos os vídeos da escola
+              Ver fotos e vídeos da escola
               <Icon name="arrowRight" size={18} />
             </a>
           </Reveal>

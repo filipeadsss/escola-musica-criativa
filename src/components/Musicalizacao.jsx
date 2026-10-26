@@ -31,18 +31,27 @@ export default function Musicalizacao() {
             </SectionHeader>
           </Reveal>
 
-          <Stagger className="checklist">
-            {destaques.map((d) => (
-              <StaggerItem key={d.text}>
-                <Icon name={d.icon} size={20} />
-                {d.text}
-              </StaggerItem>
-            ))}
-          </Stagger>
+          <Reveal className="destaques">
+            <h3 className="destaques__title">
+              <Icon name="sparkle" size={22} />
+              Diferenciais da nossa musicalização
+            </h3>
+            <Stagger className="checklist checklist--destaques">
+              {destaques.map((d) => (
+                <StaggerItem key={d.text}>
+                  <Icon name={d.icon} size={22} />
+                  {d.text}
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </Reveal>
 
-          <Reveal as="p" className="musicalizacao__room">
-            As salas são coloridas e cheias de brinquedos. Uma delas parece o quarto do Andy, de <em>Toy Story</em>,
-            com papel de parede de nuvens e tudo.
+          <Reveal className="salas-tematicas">
+            <h3 className="salas-tematicas__title">Nossas salas de aula são temáticas</h3>
+            <p>
+              Inspiradas em histórias e personagens do cinema, elas mudam de tempos em tempos. Assim a criança entra
+              num ambiente que parece feito para ela, se sente à vontade para explorar e aprende ainda mais.
+            </p>
           </Reveal>
 
           <Reveal className="section-actions">
@@ -50,7 +59,7 @@ export default function Musicalizacao() {
             {hasVideos && (
               <a className="btn btn--secondary" href={videosPageUrl('musicalizacao')}>
                 <Icon name="video" size={18} />
-                Ver vídeos das aulas
+                Ver fotos e vídeos das aulas
               </a>
             )}
           </Reveal>
